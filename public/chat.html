@@ -27,6 +27,10 @@
         </form>
 
         <button id="send-location">Location</button>
+
+        <!-- sending foto -->
+        <!-- <button>Photo</button> -->
+        <input id="photo" type="file" onchange="handleFiles()" />
       </div>
     </div>
 
@@ -52,6 +56,18 @@
           <p>
             <a href="{{url}}" target="_blanc">My current location</a>
           </p>
+        </div>
+      </li>
+    </script>
+
+    <script id="photo-message-template" type="text/template">
+      <li class="message">
+        <div class="message__title">
+          <h4>{{from}}</h4>
+          <span>{{createdAt}}</span>
+        </div>
+        <div class="message__body">
+          <img src="{{photo}}" alt="user_photo" style="width:50%;height:50%;">
         </div>
       </li>
     </script>

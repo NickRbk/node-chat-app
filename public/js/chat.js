@@ -70,6 +70,20 @@ socket.on('newLocationMessage', (message) => {
   scrollToBottom();
 });
 
+socket.on('newPhotoMessage', (message) => {
+  let formattedTime = moment(message.createdAt).format('h:mm a');
+
+  let template = jQuery('#photo-message-template').html();
+  let html = Mustache.render(template, {
+    createdAt: formattedTime,
+    from: message.from,
+    photo: message.photo
+  });
+
+  jQuery('#messages').append(html);
+  scrollToBottom();
+});
+
 jQuery('#message-form').on('submit', (e) => {
   e.preventDefault();
 
@@ -100,3 +114,16 @@ locationButton.on('click', () => {
     alert('Uable to fetch location');
   });
 });
+
+let handleFiles = () => {
+  let reader = new FileReader();
+  let photo = document.getElementById('photo').files[0];
+
+  reader.addEventListener("loadend", result => {
+    socket.emit('createPhotoMessage', {
+      photo: result.target.result
+    });
+    // console.log(result.target.result);
+  }, false);
+  reader.readAsDataURL(photo);
+};
