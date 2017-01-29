@@ -185,6 +185,11 @@ button:disabled, uploadPhoto:disabled {
     font-size: 1rem;
   }
 
+  .uploadPhoto {
+    margin-left: 10px;
+    margin-right: 0px;
+  }
+
   .chat__sidebar {
     display: none;
   }
