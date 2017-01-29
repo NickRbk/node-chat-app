@@ -24,13 +24,13 @@
         <form id="message-form">
           <input name="message" type="text" placeholder="Enter your message.." autofocus autocomplete="off"/>
           <button>Send</button>
+
+          <!-- sending foto -->
+          <label for="photo" class="uploadPhoto">Send Photo</label>
+          <input id="photo" type="file" onchange="handleFiles()" />
         </form>
 
         <button id="send-location">Location</button>
-
-        <!-- sending foto -->
-        <!-- <button>Photo</button> -->
-        <input id="photo" type="file" onchange="handleFiles()" />
       </div>
     </div>
 
