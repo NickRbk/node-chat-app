@@ -70,18 +70,41 @@ socket.on('newLocationMessage', (message) => {
   scrollToBottom();
 });
 
-socket.on('newPhotoMessage', (message) => {
+socket.on('newMediaMessage', (message) => {
   let formattedTime = moment(message.createdAt).format('h:mm a');
 
-  let template = jQuery('#photo-message-template').html();
-  let html = Mustache.render(template, {
-    createdAt: formattedTime,
-    from: message.from,
-    photo: message.photo
-  });
+  if(message.media.indexOf('image') !== -1) {
+    let template = jQuery('#image-message-template').html();
+    let html = Mustache.render(template, {
+      createdAt: formattedTime,
+      from: message.from,
+      media: message.media
+    });
 
-  jQuery('#messages').append(html);
-  scrollToBottom();
+    jQuery('#messages').append(html);
+    scrollToBottom();
+
+  } else {
+    let template = jQuery('#media-message-template').html();
+    let html = Mustache.render(template, {
+      createdAt: formattedTime,
+      from: message.from,
+      media: message.media
+    });
+
+    jQuery('#messages').append(html);
+    scrollToBottom();
+  }
+
+  // let template = jQuery('#image-message-template').html();
+  // let html = Mustache.render(template, {
+  //   createdAt: formattedTime,
+  //   from: message.from,
+  //   media: message.media
+  // });
+
+  // jQuery('#messages').append(html);
+  // scrollToBottom();
 });
 
 jQuery('#message-form').on('submit', (e) => {
@@ -117,14 +140,14 @@ locationButton.on('click', () => {
 
 let handleFiles = () => {
   let reader = new FileReader();
-  let photo = document.getElementById('photo').files[0];
+  let media = document.getElementById('photo').files[0];
 
   reader.addEventListener("loadend", result => {
 
-    socket.emit('createPhotoMessage', {
-      photo: result.target.result
+    socket.emit('createMediaMessage', {
+      media: result.target.result
     });
     // console.log(result.target.result);
   }, false);
-  reader.readAsDataURL(photo);
+  reader.readAsDataURL(media);
 };

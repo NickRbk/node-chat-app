@@ -16,12 +16,12 @@ let generateLocationMessage = (from, latitude, longitude) => {
   };
 };
 
-let generatePhotoMessage = (from, base64) => {
+let generateMediaMessage = (from, base64) => {
   return {
     from,
-    photo: base64,
+    media: base64,
     createdAt: moment().valueOf()
   };
 };
 
-module.exports = {generateMessage, generateLocationMessage, generatePhotoMessage};
+module.exports = {generateMessage, generateLocationMessage, generateMediaMessage};

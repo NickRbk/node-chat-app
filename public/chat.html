@@ -25,7 +25,7 @@
           <button>Send</button>
 
           <!-- sending foto -->
-          <label for="photo" style="margin-right: 0px;" class="uploadPhoto">Photo</label>
+          <label for="photo" style="margin-right: 0px;" class="uploadPhoto">Media</label>
           <input id="photo" type="file" onchange="handleFiles()" />
         </form>
 
@@ -59,14 +59,26 @@
       </li>
     </script>
 
-    <script id="photo-message-template" type="text/template">
+    <script id="image-message-template" type="text/template">
       <li class="message">
         <div class="message__title">
           <h4>{{from}}</h4>
           <span>{{createdAt}}</span>
         </div>
         <div class="message__body">
-          <video src="{{photo}}" alt="user_photo" style="width:50%;height:50%;">
+          <image src="{{media}}" alt="user_media" style="width:70%;height:70%;">
+        </div>
+      </li>
+    </script>
+
+    <script id="media-message-template" type="text/template">
+      <li class="message">
+        <div class="message__title">
+          <h4>{{from}}</h4>
+          <span>{{createdAt}}</span>
+        </div>
+        <div class="message__body">
+          <video src="{{media}}" alt="user_media" style="width:70%;height:70%;">
         </div>
       </li>
     </script>

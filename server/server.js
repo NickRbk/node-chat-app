@@ -3,7 +3,7 @@ const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');
 
-const {generateMessage, generateLocationMessage, generatePhotoMessage} = require('./utils/message');
+const {generateMessage, generateLocationMessage, generateMediaMessage} = require('./utils/message');
 const {isRealString} = require('./utils/validation');
 const {Users} = require('./utils/users');
 
@@ -71,10 +71,10 @@ io.on('connection', (socket) => {
 
   });
 
-  socket.on('createPhotoMessage', (base64) => {
+  socket.on('createMediaMessage', (base64) => {
     let user = users.getUser(socket.id);
 
-    io.to(user.room).emit('newPhotoMessage', generatePhotoMessage(user.name, base64.photo));
+    io.to(user.room).emit('newMediaMessage', generateMediaMessage(user.name, base64.media));
 
   });
 
