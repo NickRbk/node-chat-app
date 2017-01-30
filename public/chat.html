@@ -9,30 +9,38 @@
   </head>
   <body class="chat">
 
+    <!-- sidebar -->
     <div class="chat__sidebar">
       <h3>People</h3>
-
       <div id="users"></div>
     </div>
 
+    <!-- chat page -->
     <div class="chat__main">
+
+      <!-- messages list -->
       <ol id="messages" class="chat__messages"></ol>
 
+      <!-- footer -->
       <div class="chat__footer">
+
+        <!-- submit form for message and sending media -->
         <form id="message-form">
           <input name="message" type="text" placeholder="Enter your message.." autofocus autocomplete="off"/>
-
           <button>Send</button>
 
-          <!-- sending foto -->
-          <label for="photo" style="margin-right: 0px;" class="uploadPhoto">Media</label>
-          <input id="photo" type="file" onchange="handleFiles()" />
+          <!-- sending media -->
+          <label for="media" style="margin-right: 0px;" class="uploadPhoto">Media</label>
+          <input id="media" type="file" onchange="handleFiles()" />
         </form>
 
+        <!-- sending location -->
         <button id="send-location">Location</button>
       </div>
     </div>
 
+
+    <!-- template for messages -->
     <script id="message-template" type="text/template">
       <li class="message">
         <div class="message__title">
@@ -45,6 +53,7 @@
       </li>
     </script>
 
+    <!-- template for location -->
     <script id="location-message-template" type="text/template">
       <li class="message">
         <div class="message__title">
@@ -59,6 +68,7 @@
       </li>
     </script>
 
+    <!-- template for images -->
     <script id="image-message-template" type="text/template">
       <li class="message">
         <div class="message__title">
@@ -71,6 +81,7 @@
       </li>
     </script>
 
+    <!-- template for video -->
     <script id="media-message-template" type="text/template">
       <li class="message">
         <div class="message__title">
@@ -83,9 +94,7 @@
       </li>
     </script>
 
-
-
-
+    <!--  connect scripts -->
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/libs/jquery-3.1.1.min.js"></script>
     <script src="/js/libs/moment.js"></script>

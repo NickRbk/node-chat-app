@@ -17,7 +17,7 @@ h3 {
   font-size: 1.5rem;
 }
 
-#photo {
+#media {
   display: none;
 }
 
@@ -166,10 +166,8 @@ button:disabled, uploadPhoto:disabled {
 
 .chat__messages li p {
   padding: 10px;
-  margin: 5px;
+  margin: 5px 5px 5px 15px;
   border-left: 1px darkblue solid;
-
-
 }
 
 .message__title {

@@ -1,5 +1,6 @@
 const moment = require('moment');
 
+// generate different messages
 let generateMessage = (from, text) => {
   return {
     from,
