@@ -12,9 +12,7 @@
     <div class="chat__sidebar">
       <h3>People</h3>
 
-      <div id="users">
-
-      </div>
+      <div id="users"></div>
     </div>
 
     <div class="chat__main">
@@ -22,11 +20,13 @@
 
       <div class="chat__footer">
         <form id="message-form">
-          <input name="message" type="text" placeholder="Enter your message.." autofocus autocomplete="off"/>
+          <!-- <input name="message" type="text" placeholder="Enter your message.." autofocus autocomplete="off"/> -->
+
+          <textarea name="message" type="text" placeholder="Enter your message.." autofocus autocomplete="off"></textarea>
           <button>Send</button>
 
           <!-- sending foto -->
-          <label for="photo" class="uploadPhoto">Photo</label>
+          <label for="photo" style="margin-right: 0px;" class="uploadPhoto">Photo</label>
           <input id="photo" type="file" onchange="handleFiles()" />
         </form>
 

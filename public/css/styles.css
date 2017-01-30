@@ -21,10 +21,6 @@ h3 {
   display: none;
 }
 
-.uploadPhoto {
-  margin-right: 10px;
-}
-
 button, .uploadPhoto {
   border: none;
   background: #265f82;
@@ -162,8 +158,8 @@ button:disabled, uploadPhoto:disabled {
   padding: 10px;
 }
 
-.message {
-  padding: 10px;
+textarea {
+  width: 100%;
 }
 
 .message__title {
@@ -180,14 +176,25 @@ button:disabled, uploadPhoto:disabled {
   color: #999;
 }
 
+#send-location {
+  margin-left: 10px;
+}
+
 @media (max-width: 600px) {
   * {
     font-size: 1rem;
   }
 
+  form {
+    margin: 0px;
+  }
+
+  #send-location {
+    margin-left: 0px;
+  }
+
   .uploadPhoto {
     margin-left: 10px;
-    margin-right: 0px;
   }
 
   .chat__sidebar {
@@ -200,6 +207,7 @@ button:disabled, uploadPhoto:disabled {
 
   .chat__footer form {
     margin-bottom: 10px;
+    padding: 0px;
   }
 
   .chat__footer button {

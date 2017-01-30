@@ -35,11 +35,11 @@ socket.on('connect', () => {
 socket.on('disconnect', () => console.log('Disconnected from server'));
 
 socket.on('updateUserList', (users) => {
-  let ol = jQuery('<ol></ol>');
+  let ul = jQuery('<ul></ul>');
 
-  users.forEach((user) => ol.append(jQuery('<li></li>').text(user)));
+  users.forEach((user) => ul.append(jQuery('<li></li>').text(user)));
 
-  jQuery('#users').html(ol);
+  jQuery('#users').html(ul);
 });
 
 socket.on('newMessage', (message) => {
@@ -120,6 +120,7 @@ let handleFiles = () => {
   let photo = document.getElementById('photo').files[0];
 
   reader.addEventListener("loadend", result => {
+
     socket.emit('createPhotoMessage', {
       photo: result.target.result
     });
